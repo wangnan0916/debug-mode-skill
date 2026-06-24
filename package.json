@@ -1,0 +1,14 @@
+{
+  "name": "debug-mode-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent-agnostic debug-mode skill with local NDJSON log collection.",
+  "scripts": {
+    "check": "node --check skills/debug-mode/scripts/log-server.mjs && node --check skills/debug-mode/assets/browser-log-helper.js && node --check skills/debug-mode/assets/node-log-helper.js && node --check tests/log-server.test.mjs && node --check tests/helper-assets.test.mjs",
+    "test": "node tests/log-server.test.mjs && node tests/helper-assets.test.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
