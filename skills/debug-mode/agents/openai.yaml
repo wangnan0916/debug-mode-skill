@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cursor-like Debug Mode"
+  short_description: "Runtime diagnosis with three checkpoint options"
+  default_prompt: "Use $debug-mode to diagnose a reproducible runtime bug. Add temporary probes. Use interactive A, B, and C checkpoints when available. Use log evidence for a small fix and cleanup."
