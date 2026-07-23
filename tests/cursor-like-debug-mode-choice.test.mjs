@@ -61,7 +61,8 @@ assert.equal(sentMessages[0].content.includes("description: This opt-in workflow
 assert.equal(sentMessages[0].options, undefined);
 
 await commandDefinition.handler("", { isIdle: () => false });
-assert.match(sentMessages[1].content, /Ask for the missing Bug Intake information\.$/);
+assert.match(sentMessages[1].content, /Start Cursor-like Debug Mode\.$/);
+assert.doesNotMatch(sentMessages[1].content, /Bug Intake/);
 assert.deepEqual(sentMessages[1].options, { deliverAs: "steer" });
 
 assert.equal(checkpointTool.name, "cursor_like_debug_mode_checkpoint");

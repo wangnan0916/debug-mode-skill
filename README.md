@@ -11,7 +11,7 @@ local loopback collector, wait for you to reproduce manually, fix from log proof
 verify once, then clean up.
 
 ```text
-hypothesize -> instrument -> reproduce -> inspect evidence -> fix -> verify -> clean up
+analyze code -> hypothesize -> instrument -> reproduce -> inspect evidence -> fix -> verify -> clean up
 ```
 
 ## When to Use
@@ -30,7 +30,7 @@ Detailed contracts load progressively from `skills/debug-mode/references/`.
 
 ## How It Works
 
-1. The agent states ranked hypotheses and adds 3–8 targeted probes.
+1. The agent analyzes the relevant code path, states ranked hypotheses, and adds 3–8 targeted probes.
 2. A small loopback collector receives structured events at `POST /log` and
    writes one NDJSON line per event.
 3. The agent stops and asks you to reproduce the bug manually. In Pi, the

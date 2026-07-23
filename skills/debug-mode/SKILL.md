@@ -7,34 +7,39 @@ compatibility: The collector and summary scripts require Node.js 24 or a later v
 
 # Cursor-like Debug Mode
 
-Run this evidence loop:
+Run this code-first evidence loop:
 
 ```text
-frame -> hypothesize -> arm -> instrument -> reproduce -> prove -> fix -> verify -> clean
+analyze code -> hypothesize -> arm -> instrument -> reproduce -> prove -> fix -> verify -> clean
 ```
 
+Work autonomously through instrumentation.
+The first planned user interaction is the Step 5 reproduction checkpoint.
 Reproduction and verification are gates. Cross them only through the checkpoint protocol.
 
-## 1. Frame the Bug
+## 1. Analyze the Code Path
 
-Read the relevant code, reproduction details, existing logs, and recent changes.
-Write a Bug Card with these fields:
+Start repository legwork from the reported symptom.
+Read relevant entry points, event handlers, state transitions, existing logs, and recent changes.
+Map candidate code paths from the user's trigger to the observed outcome.
+Write a provisional Bug Card from available evidence:
 
-- Symptom
-- Expected behavior
-- Exact trigger, route, command, input, or fixture
-- Browser, operating system, runtime, branch, flags, account, and dataset
-- Frequency: constant, intermittent, or unknown
-- Relevant recent changes and existing evidence
+- Symptom and expected behavior
+- Known trigger, route, command, input, or fixture
+- Candidate runtime path and disputed boundaries
+- Relevant environment, frequency, recent changes, and evidence
 - Observable acceptance criterion
 
-Reuse facts from the user's report. Ask only for missing facts that block targeted probes.
+Record unavailable facts as `unknown`.
+Resolve consequential unknowns through code reading or discriminating runtime probes.
 
-**Complete when:** the manual trigger is exact, and the acceptance criterion is observable.
+**Complete when:** one candidate path links trigger to symptom, and every disputed branch has a named probe boundary.
 
 ## 2. Build the Hypothesis Matrix
 
-Write two to five ranked hypotheses before adding probes. Use this shape:
+Write two to five ranked hypotheses before adding probes.
+Anchor the first matrix in code analysis and available evidence.
+Use this shape:
 
 ```text
 H1 <short cause>

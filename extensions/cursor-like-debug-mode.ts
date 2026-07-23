@@ -72,8 +72,7 @@ function stripFrontmatter(source: string) {
 
 function buildSkillPrompt(args: string) {
 	const body = stripFrontmatter(readFileSync(SKILL_PATH, "utf8"));
-	const request =
-		args.trim() || "Start Cursor-like Debug Mode. Ask for the missing Bug Intake information.";
+	const request = args.trim() || "Start Cursor-like Debug Mode.";
 	return `<skill name="debug-mode" location="${SKILL_PATH}">\nReferences are relative to ${dirname(SKILL_PATH)}.\n\n${body}\n</skill>\n\n${request}`;
 }
 
